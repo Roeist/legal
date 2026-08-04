@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinguaSprint — Privacy Policy</title>
+<link rel="canonical" href="https://roeist.github.io/legal/linguasprint/">
+<meta name="robots" content="index,follow">
+<style>
+:root{
+  --bg:#ffffff; --fg:#1a1c1e; --muted:#5b6166; --rule:#e2e5e8;
+  --accent:#0b5cab; --code-bg:#f2f4f6; --card:#f8f9fa;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#14161a; --fg:#e6e8ea; --muted:#a3abb2; --rule:#2b3036;
+    --accent:#79b3f5; --code-bg:#1e2229; --card:#191d22;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0 auto; padding:1.5rem 1.15rem 4rem; max-width:44rem;
+  background:var(--bg); color:var(--fg);
+  font:400 17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+h1{font-size:1.6rem; line-height:1.25; margin:0 0 .35rem}
+h2{font-size:1.2rem; line-height:1.3; margin:2.2rem 0 .6rem; padding-top:1rem; border-top:1px solid var(--rule)}
+h3{font-size:1.05rem; margin:1.6rem 0 .4rem}
+p{margin:0 0 1rem}
+ul{margin:0 0 1rem; padding-left:1.25rem}
+li{margin:0 0 .5rem}
+a{color:var(--accent)}
+strong{font-weight:600}
+.meta{color:var(--muted); font-size:.95rem; margin:0 0 1.75rem}
+code{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:.86em; background:var(--code-bg); padding:.12em .35em; border-radius:4px;
+  /* permission names such as BIND_GET_INSTALL_REFERRER_SERVICE are long: never let
+     one of them push the page into horizontal scrolling on a phone. */
+  overflow-wrap:anywhere; word-break:break-word;
+}
+.tw{overflow-x:auto; margin:0 0 1.25rem}
+table{border-collapse:collapse; width:100%; font-size:.95rem}
+th,td{text-align:left; vertical-align:top; padding:.6rem .7rem; border-bottom:1px solid var(--rule)}
+th{font-weight:600; color:var(--muted); font-size:.82rem; letter-spacing:.02em; text-transform:uppercase}
+nav{margin:0 0 1.5rem; font-size:.92rem}
+footer{margin-top:3rem; padding-top:1rem; border-top:1px solid var(--rule); color:var(--muted); font-size:.9rem}
+footer a{color:var(--accent)}
+.apps{list-style:none; padding:0; margin:1.5rem 0 0}
+.apps li{margin:0 0 .75rem}
+.apps a{
+  display:block; padding:.9rem 1rem; background:var(--card);
+  border:1px solid var(--rule); border-radius:10px;
+  text-decoration:none; color:var(--fg); font-weight:600;
+}
+.apps a span{display:block; font-weight:400; font-size:.9rem; color:var(--muted); margin-top:.15rem}
+/* Phones: a 3-column table is unreadable, so stack each row as a labelled card. */
+@media (max-width:640px){
+  body{padding:1.25rem 1rem 3rem; font-size:16px}
+  h1{font-size:1.4rem}
+  table,tbody,tr,td{display:block; width:100%}
+  thead{position:absolute; left:-9999px}
+  tr{margin:0 0 1rem; padding:.25rem .9rem .5rem; background:var(--card);
+     border:1px solid var(--rule); border-radius:10px}
+  td{border:0; padding:.55rem 0}
+  td+td{border-top:1px solid var(--rule)}
+  td::before{
+    content:attr(data-label); display:block; margin-bottom:.2rem;
+    font-size:.72rem; font-weight:600; letter-spacing:.04em;
+    text-transform:uppercase; color:var(--muted);
+  }
+}
+</style>
+</head>
+<body>
+<nav><a href="../">All apps</a></nav>
+<main>
+<h1>LinguaSprint — Privacy Policy</h1>
+<p class="meta">Last updated: 1 August 2026</p>
+<p>LinguaSprint ("the app", "we") is built privacy-first: your learning progress stays on your device. This policy says exactly what the app does and does not do with your data, including the parts that are less flattering.</p>
+<h2>The short version</h2>
+<ul>
+<li><strong>Your lesson progress never leaves your phone.</strong> It is stored in app-private storage on your device and is never uploaded to us or to anyone else.</li>
+<li><strong>We do not require an account.</strong> No login, no email, no profile.</li>
+<li><strong>We never sell or rent your data</strong>, and we never share what you type or how you answer.</li>
+<li><strong>The app does connect to the internet.</strong> Not for your progress — for crash reports, anonymous usage counts and purchases. Section "What the app sends" lists every one of them.</li>
+</ul>
+<h2>What is stored on your device only (never transmitted)</h2>
+<ul>
+<li>Your lesson completions, course-map state, XP, level, active course and settings.</li>
+</ul>
+<p>This data lives in local, app-private storage. Uninstalling the app permanently deletes it. We have no copy and cannot recover it. Because there is no account, progress does not follow you to another device.</p>
+<p>The lessons themselves are bundled inside the app as JSON, so studying works with the connection turned off.</p>
+<h2>What the app sends</h2>
+<p>The merged manifest declares <code>INTERNET</code> and <code>ACCESS_NETWORK_STATE</code>; the advertising ID permission <code>com.google.android.gms.permission.AD_ID</code>; the three Android Ad Services permissions <code>ACCESS_ADSERVICES_AD_ID</code>, <code>ACCESS_ADSERVICES_ATTRIBUTION</code> and <code>ACCESS_ADSERVICES_TOPICS</code>; <code>com.android.vending.BILLING</code> and <code>com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE</code> for purchases; and <code>WAKE_LOCK</code> and <code>FOREGROUND_SERVICE</code>, which the Google Play and Firebase libraries merge in — we run no foreground service of our own. We declare none of these ourselves; every one arrives by manifest merge from the libraries below. Here is each one and what it is for:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Third party</th>
+<th>What it receives</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="Third party">Google Firebase Crashlytics</td>
+<td data-label="What it receives">Crash stack traces, device model, OS version</td>
+<td data-label="Why">So we can fix crashes</td>
+</tr>
+<tr>
+<td data-label="Third party">Google Firebase Analytics</td>
+<td data-label="What it receives">Event <strong>names</strong> only — e.g. <code>lesson_started</code>, <code>paywall_shown</code> — with <strong>no parameters attached</strong></td>
+<td data-label="Why">So we can tell which lessons are reached</td>
+</tr>
+<tr>
+<td data-label="Third party">Google Play Billing</td>
+<td data-label="What it receives">Your purchase</td>
+<td data-label="Why">So Premium can be sold</td>
+</tr>
+<tr>
+<td data-label="Third party">RevenueCat</td>
+<td data-label="What it receives">Your purchase / entitlement status and an anonymous app user ID</td>
+<td data-label="Why">So Premium follows you to a new device</td>
+</tr>
+<tr>
+<td data-label="Third party">Google Mobile Ads SDK</td>
+<td data-label="What it receives">Advertising ID availability</td>
+<td data-label="Why">The SDK is bundled; <strong>ads are switched off in this release</strong> and no ad is requested or shown</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Nothing you type, and no answer you give, ever appears in any of these.</strong> Our analytics events carry no parameters at all.</p>
+<p>We never receive your payment card details; those are handled solely by Google.</p>
+<h2>Text-to-speech</h2>
+<p>Pronunciation is spoken by the text-to-speech engine already installed on your device. Which engine that is, and whether it processes text on the device or on its vendor's servers, is set by your device and its own privacy policy — not by us. The text we hand it is the lesson text bundled in the app, never anything you wrote.</p>
+<h2>Advertising</h2>
+<p>The Google Mobile Ads SDK ships inside the app but advertising is <strong>switched off</strong> in this release, so no ad is requested and no ad is shown. Because the SDK is present, Android still lists the advertising-ID permission for the app. If we ever turn ads on, we will update this policy and the Play Data safety form before the release that does it.</p>
+<h2>Children</h2>
+<p>LinguaSprint is not directed to children under 13 and we do not knowingly collect data from them.</p>
+<h2>Your rights</h2>
+<p>Your learning data is stored only on your device — clear it in-app or uninstall to erase everything. For the crash and analytics data listed above, Google acts as the processor — see Google's privacy policy for access and deletion requests.</p>
+<h2>Changes</h2>
+<p>We may update this policy; the "last updated" date will change accordingly.</p>
+<h2>Contact</h2>
+<p>Questions? Email <strong>roei2mberg@gmail.com</strong>.</p>
+</main>
+<footer>
+<p>Contact: <a href="mailto:roei2mberg@gmail.com">roei2mberg@gmail.com</a></p>
+<p>This page is generated from the app&rsquo;s privacy-policy source file. Do not edit it by hand.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy policies</title>
+<link rel="canonical" href="https://roeist.github.io/legal/">
+<meta name="robots" content="index,follow">
+<style>
+:root{
+  --bg:#ffffff; --fg:#1a1c1e; --muted:#5b6166; --rule:#e2e5e8;
+  --accent:#0b5cab; --code-bg:#f2f4f6; --card:#f8f9fa;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#14161a; --fg:#e6e8ea; --muted:#a3abb2; --rule:#2b3036;
+    --accent:#79b3f5; --code-bg:#1e2229; --card:#191d22;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0 auto; padding:1.5rem 1.15rem 4rem; max-width:44rem;
+  background:var(--bg); color:var(--fg);
+  font:400 17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+h1{font-size:1.6rem; line-height:1.25; margin:0 0 .35rem}
+h2{font-size:1.2rem; line-height:1.3; margin:2.2rem 0 .6rem; padding-top:1rem; border-top:1px solid var(--rule)}
+h3{font-size:1.05rem; margin:1.6rem 0 .4rem}
+p{margin:0 0 1rem}
+ul{margin:0 0 1rem; padding-left:1.25rem}
+li{margin:0 0 .5rem}
+a{color:var(--accent)}
+strong{font-weight:600}
+.meta{color:var(--muted); font-size:.95rem; margin:0 0 1.75rem}
+code{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:.86em; background:var(--code-bg); padding:.12em .35em; border-radius:4px;
+  /* permission names such as BIND_GET_INSTALL_REFERRER_SERVICE are long: never let
+     one of them push the page into horizontal scrolling on a phone. */
+  overflow-wrap:anywhere; word-break:break-word;
+}
+.tw{overflow-x:auto; margin:0 0 1.25rem}
+table{border-collapse:collapse; width:100%; font-size:.95rem}
+th,td{text-align:left; vertical-align:top; padding:.6rem .7rem; border-bottom:1px solid var(--rule)}
+th{font-weight:600; color:var(--muted); font-size:.82rem; letter-spacing:.02em; text-transform:uppercase}
+nav{margin:0 0 1.5rem; font-size:.92rem}
+footer{margin-top:3rem; padding-top:1rem; border-top:1px solid var(--rule); color:var(--muted); font-size:.9rem}
+footer a{color:var(--accent)}
+.apps{list-style:none; padding:0; margin:1.5rem 0 0}
+.apps li{margin:0 0 .75rem}
+.apps a{
+  display:block; padding:.9rem 1rem; background:var(--card);
+  border:1px solid var(--rule); border-radius:10px;
+  text-decoration:none; color:var(--fg); font-weight:600;
+}
+.apps a span{display:block; font-weight:400; font-size:.9rem; color:var(--muted); margin-top:.15rem}
+/* Phones: a 3-column table is unreadable, so stack each row as a labelled card. */
+@media (max-width:640px){
+  body{padding:1.25rem 1rem 3rem; font-size:16px}
+  h1{font-size:1.4rem}
+  table,tbody,tr,td{display:block; width:100%}
+  thead{position:absolute; left:-9999px}
+  tr{margin:0 0 1rem; padding:.25rem .9rem .5rem; background:var(--card);
+     border:1px solid var(--rule); border-radius:10px}
+  td{border:0; padding:.55rem 0}
+  td+td{border-top:1px solid var(--rule)}
+  td::before{
+    content:attr(data-label); display:block; margin-bottom:.2rem;
+    font-size:.72rem; font-weight:600; letter-spacing:.04em;
+    text-transform:uppercase; color:var(--muted);
+  }
+}
+</style>
+</head>
+<body>
+<main>
+<h1>Privacy policies</h1>
+<p class="meta">Privacy policies for the apps listed below.</p>
+<p>Each app keeps your content on your device. Each policy states exactly what the app does send, to which company, and why &mdash; including where your data is stored and whether it is encrypted.</p>
+<ul class="apps">
+      <li><a href="sleepcycleai/">SleepCycleAI<span>Privacy policy — updated 1 August 2026</span></a></li>
+      <li><a href="moodtrack/">MoodTrack<span>Privacy policy — updated 1 August 2026</span></a></li>
+      <li><a href="cycleluna/">CycleLuna<span>Privacy policy — updated 1 August 2026</span></a></li>
+      <li><a href="linguasprint/">LinguaSprint<span>Privacy policy — updated 1 August 2026</span></a></li>
+      <li><a href="flashbrain/">FlashBrain<span>Privacy policy — updated 1 August 2026</span></a></li>
+</ul>
+</main>
+<footer>
+<p>Contact: <a href="mailto:roei2mberg@gmail.com">roei2mberg@gmail.com</a></p>
+<p>This page is generated from the app&rsquo;s privacy-policy source file. Do not edit it by hand.</p>
+</footer>
+</body>
+</html>
