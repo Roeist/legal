@@ -1,6 +1,7 @@
 # Privacy policy site
 
-A self-contained static site hosting the privacy policy for five Play Store apps.
+A self-contained static site hosting the privacy policies for the fleet's Play Store apps
+(the five profit apps plus the non-profit fleet apps added 2026-10-06).
 Google Play requires a **publicly reachable** privacy policy URL per app; a Markdown file
 inside a private repo does not satisfy that. This publishes them.
 
@@ -65,6 +66,42 @@ Each page is generated from that app's policy file in its own repo:
 | CycleLuna    | `https://roeist.github.io/legal/cycleluna/` |
 | LinguaSprint | `https://roeist.github.io/legal/linguasprint/` |
 | FlashBrain   | `https://roeist.github.io/legal/flashbrain/` |
+| AnxietyBreath | `https://roeist.github.io/legal/anxietybreath/` |
+| BillSplitPro | `https://roeist.github.io/legal/billsplitpro/` |
+| BlockNotes | `https://roeist.github.io/legal/blocknotes/` |
+| BookWorm | `https://roeist.github.io/legal/bookworm/` |
+| DebtCrusher | `https://roeist.github.io/legal/debtcrusher/` |
+| DocScanPro | `https://roeist.github.io/legal/docscanpro/` |
+| ExpenseSnap | `https://roeist.github.io/legal/expensesnap/` |
+| FreelanceTimer | `https://roeist.github.io/legal/freelancetimer/` |
+| GrocerySync | `https://roeist.github.io/legal/grocerysync/` |
+| JoyLog | `https://roeist.github.io/legal/joylog/` |
+| LangDaily | `https://roeist.github.io/legal/langdaily/` |
+| LeafScan | `https://roeist.github.io/legal/leafscan/` |
+| LocalPerks | `https://roeist.github.io/legal/localperks/` |
+| MoodMusic | `https://roeist.github.io/legal/moodmusic/` |
+| NeighborHub | `https://roeist.github.io/legal/neighborhub/` |
+| NicheMarket | `https://roeist.github.io/legal/nichemarket/` |
+| PDFLite | `https://roeist.github.io/legal/pdflite/` |
+| ParkingSpotter | `https://roeist.github.io/legal/parkingspotter/` |
+| PetLog | `https://roeist.github.io/legal/petlog/` |
+| PlantCareAI | `https://roeist.github.io/legal/plantcareai/` |
+| QRMenu | `https://roeist.github.io/legal/qrmenu/` |
+| QuickCode | `https://roeist.github.io/legal/quickcode/` |
+| RecipeLeftovers | `https://roeist.github.io/legal/recipeleftovers/` |
+| SwiftInvoice | `https://roeist.github.io/legal/swiftinvoice/` |
+| TaskFlow | `https://roeist.github.io/legal/taskflow/` |
+| VocabBoost | `https://roeist.github.io/legal/vocabboost/` |
+| VoiceMemoPro | `https://roeist.github.io/legal/voicememopro/` |
+| WardrobeAI | `https://roeist.github.io/legal/wardrobeai/` |
+| WeekBite | `https://roeist.github.io/legal/weekbite/` |
+| PomoFocus | `https://roeist.github.io/legal/pomofocus/` |
+| WifiHunter | `https://roeist.github.io/legal/wifihunter/` |
+| TaskHero | `https://roeist.github.io/legal/taskhero/` |
+| ExchanGo | `https://roeist.github.io/legal/exchango/` |
+| ExamForge | `https://roeist.github.io/legal/examforge/` |
+| EventRadar | `https://roeist.github.io/legal/eventradar/` |
+| NoteVault | `https://roeist.github.io/legal/notevault/` |
 
 Landing page: `https://roeist.github.io/legal/`
 
