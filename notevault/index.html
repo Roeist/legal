@@ -84,7 +84,7 @@ footer a{color:var(--accent)}
 <li><strong>Your notes never leave your phone unless you share them.</strong> Everything stays in app-private storage on your device and is never uploaded to us or to anyone else.</li>
 <li><strong>No account.</strong> No login, no email, no profile.</li>
 <li><strong>We never sell or rent your data</strong>, and we never share your content with anyone.</li>
-<li><strong>The app does connect to the internet</strong> — only for the optional Pro purchase through Google Play, crash reports and anonymous usage counts. Section "What the app sends" lists every one of them.</li>
+<li><strong>The app does connect to the internet</strong> — only for crash reports and anonymous usage counts. Section "What the app sends" lists every one of them. This version sells nothing: there is no in-app purchase.</li>
 <li><strong>No ads.</strong> The app shows no advertising and does not use the advertising ID.</li>
 </ul>
 <h2>What is stored on your device only</h2>
@@ -95,7 +95,7 @@ footer a{color:var(--accent)}
 <p>This data lives in local, app-private storage. Android's cloud backup is switched off for this app, so it is not copied to your Google account either. Uninstalling the app permanently deletes it. We have no copy and cannot recover it.</p>
 <p>A note you share leaves the app only through your device's share sheet, to whichever app or person you choose. We never see it.</p>
 <h2>What the app sends</h2>
-<p>The release build declares these permissions: <code>FOREGROUND_SERVICE</code> (merged in by the Google Firebase / Play libraries; the app runs no foreground service of its own); <code>INTERNET</code> and <code>ACCESS_NETWORK_STATE</code> (network access, used only for what the table below lists); <code>WAKE_LOCK</code> (merged in by the Google Firebase / Play libraries); <code>com.android.vending.BILLING</code> (for the optional Pro purchase); <code>BIND_GET_INSTALL_REFERRER_SERVICE</code> (used by Firebase Analytics to record which store the app was installed from). It does <strong>not</strong> declare the advertising-ID permission. Several of these are merged in by the Google libraries the app bundles rather than used by the app itself.</p>
+<p>The release build declares these permissions: <code>FOREGROUND_SERVICE</code> (merged in by the Google Firebase / Play libraries; the app runs no foreground service of its own); <code>INTERNET</code> and <code>ACCESS_NETWORK_STATE</code> (network access, used only for what the table below lists); <code>WAKE_LOCK</code> (merged in by the Google Firebase / Play libraries); <code>com.android.vending.BILLING</code> (merged in by the Google Play Billing library the app bundles; this version offers no purchase, so it is never used); <code>BIND_GET_INSTALL_REFERRER_SERVICE</code> (used by Firebase Analytics to record which store the app was installed from). It does <strong>not</strong> declare the advertising-ID permission. Several of these are merged in by the Google libraries the app bundles rather than used by the app itself.</p>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -114,11 +114,6 @@ footer a{color:var(--accent)}
 <td data-label="Third party">Google Firebase Analytics</td>
 <td data-label="What it receives">No events of our own; plus what Firebase records automatically for every app: an app-instance ID that resets when you reinstall, device model, OS version, app version and an approximate country derived from your IP address</td>
 <td data-label="Why">So we can tell which features are used</td>
-</tr>
-<tr>
-<td data-label="Third party">Google Play Billing</td>
-<td data-label="What it receives">Only if you buy Pro: your purchase</td>
-<td data-label="Why">To sell and restore Pro</td>
 </tr>
 </tbody>
 </table></div>
