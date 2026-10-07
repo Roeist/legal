@@ -77,7 +77,7 @@ footer a{color:var(--accent)}
 <nav><a href="../">All apps</a></nav>
 <main>
 <h1>DebtCrusher — Privacy Policy</h1>
-<p class="meta">Last updated: 6 October 2026</p>
+<p class="meta">Last updated: 7 October 2026</p>
 <p>DebtCrusher ("the app", "we") builds a snowball or avalanche payoff plan for your debts, on your device. This policy says exactly what the app does and does not do with your data.</p>
 <h2>The short version</h2>
 <ul>
@@ -90,11 +90,11 @@ footer a{color:var(--accent)}
 <h2>What is stored on your device only</h2>
 <ul>
 <li>The debts you enter: name, balance, interest rate and minimum payment.</li>
-<li>Your settings, including the payment-reminder setting.</li>
+<li>Your settings: display currency, monthly budget, and whether the monthly payment reminder is on and on which day.</li>
 </ul>
 <p>This data lives in local, app-private storage. Android's cloud backup is switched off for this app, so it is not copied to your Google account either. Uninstalling the app permanently deletes it. We have no copy and cannot recover it.</p>
 <h2>What the app sends</h2>
-<p>The release build declares these permissions: <code>FOREGROUND_SERVICE</code> (merged in by the Google Firebase / Play libraries; the app runs no foreground service of its own); <code>INTERNET</code> and <code>ACCESS_NETWORK_STATE</code> (network access, used only for what the table below lists); <code>POST_NOTIFICATIONS</code> (to show the reminders you switch on); <code>RECEIVE_BOOT_COMPLETED</code> (to re-arm your reminders after the phone restarts); <code>SCHEDULE_EXACT_ALARM</code> (declared by the bundled notification library; it schedules alarms on your device and sends nothing); <code>WAKE_LOCK</code> (merged in by the Google Firebase / Play libraries); <code>com.google.android.c2dm.permission.RECEIVE</code> (merged in by the bundled Firebase Cloud Messaging library; see the table); <code>BIND_GET_INSTALL_REFERRER_SERVICE</code> (used by Firebase Analytics to record which store the app was installed from). It does <strong>not</strong> declare the advertising-ID permission. Several of these are merged in by the Google libraries the app bundles rather than used by the app itself.</p>
+<p>The release build declares these permissions: <code>FOREGROUND_SERVICE</code> (merged in by the Google Firebase / Play libraries; the app runs no foreground service of its own); <code>INTERNET</code> and <code>ACCESS_NETWORK_STATE</code> (network access, used only for what the table below lists); <code>POST_NOTIFICATIONS</code> (to show the monthly payment reminder you switch on); <code>RECEIVE_BOOT_COMPLETED</code> (to re-arm that reminder after the phone restarts); <code>SCHEDULE_EXACT_ALARM</code> (declared, but not needed: the reminder is scheduled on your device within a 10-minute window and sends nothing); <code>WAKE_LOCK</code> (merged in by the Google Firebase / Play libraries); <code>com.google.android.c2dm.permission.RECEIVE</code> (merged in by the bundled Firebase Cloud Messaging library; see the table); <code>BIND_GET_INSTALL_REFERRER_SERVICE</code> (used by Firebase Analytics to record which store the app was installed from). It does <strong>not</strong> declare the advertising-ID permission. Several of these are merged in by the Google libraries the app bundles rather than used by the app itself.</p>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -116,8 +116,8 @@ footer a{color:var(--accent)}
 </tr>
 <tr>
 <td data-label="Third party">Google Firebase Cloud Messaging</td>
-<td data-label="What it receives">A registration token and Firebase installation ID for this copy of the app, created automatically by the bundled messaging library</td>
-<td data-label="Why">None of our own: the app sends no push messages. The library ships inside a shared notifications component</td>
+<td data-label="What it receives">Nothing: the library ships inside a shared notifications component, but its automatic start-up is switched off in this app, so it does not register a push token</td>
+<td data-label="Why">The app sends no push messages; the payment reminder is scheduled on your device</td>
 </tr>
 </tbody>
 </table></div>
@@ -128,7 +128,7 @@ footer a{color:var(--accent)}
 <h2>Children</h2>
 <p>DebtCrusher is not directed to children under 13 and we do not knowingly collect data from them. It is a planning calculator, not financial advice.</p>
 <h2>Your rights</h2>
-<p>Everything you create is stored only on your device — delete it in the app at any time, or uninstall to erase everything. For the crash and analytics data listed above, Google acts as the processor — see Google's privacy policy for access and deletion requests.</p>
+<p>Everything you create is stored only on your device — delete a debt in the app at any time (swipe it away), turn the reminder off in Settings, or uninstall to erase everything. For the crash and analytics data listed above, Google acts as the processor — see Google's privacy policy for access and deletion requests.</p>
 <h2>Changes</h2>
 <p>We may update this policy; the "last updated" date will change accordingly.</p>
 <h2>Contact</h2>
