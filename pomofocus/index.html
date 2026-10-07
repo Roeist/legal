@@ -77,14 +77,14 @@ footer a{color:var(--accent)}
 <nav><a href="../">All apps</a></nav>
 <main>
 <h1>PomoFocus — Privacy Policy</h1>
-<p class="meta">Last updated: 6 October 2026</p>
+<p class="meta">Last updated: 7 October 2026</p>
 <p>PomoFocus ("the app", "we") is a focus timer that keeps your session history on your device. This policy says exactly what the app does and does not do with your data.</p>
 <h2>The short version</h2>
 <ul>
 <li><strong>Your session history never leaves your phone.</strong> Everything stays in app-private storage on your device and is never uploaded to us or to anyone else.</li>
 <li><strong>No account.</strong> No login, no email, no profile.</li>
 <li><strong>We never sell or rent your data</strong>, and we never share your content with anyone.</li>
-<li><strong>The app does connect to the internet</strong> — not for your content: only for crash reports, anonymous usage counts and the Google services listed below. Section "What the app sends" lists every one of them.</li>
+<li><strong>The app does connect to the internet</strong> — not for your content: only for crash reports, anonymous usage counts, remote feature settings and the Google services listed below. Section "What the app sends" lists every one of them.</li>
 <li><strong>No ads.</strong> The app shows no advertising and does not use the advertising ID.</li>
 </ul>
 <h2>What is stored on your device only</h2>
@@ -94,7 +94,7 @@ footer a{color:var(--accent)}
 </ul>
 <p>This data lives in local, app-private storage. Android's cloud backup is switched off for this app, so it is not copied to your Google account either. Uninstalling the app permanently deletes it. We have no copy and cannot recover it.</p>
 <h2>What the app sends</h2>
-<p>The release build declares these permissions: <code>FOREGROUND_SERVICE</code> and <code>FOREGROUND_SERVICE_MEDIA_PLAYBACK</code> (keeps the optional ambient sound playing when you leave the app during a session); <code>INTERNET</code> and <code>ACCESS_NETWORK_STATE</code> (network access, used only for what the table below lists); <code>POST_NOTIFICATIONS</code> (to show the reminders you switch on); <code>RECEIVE_BOOT_COMPLETED</code> (to re-arm your reminders after the phone restarts); <code>SCHEDULE_EXACT_ALARM</code> (declared by the bundled notification library; it schedules alarms on your device and sends nothing); <code>USE_EXACT_ALARM</code> (so the timer ends exactly on time); <code>WAKE_LOCK</code> (merged in by the Google Firebase / Play libraries); <code>com.android.vending.BILLING</code> (merged in by the bundled Google Play Billing library; this release offers no purchase); <code>com.google.android.c2dm.permission.RECEIVE</code> (merged in by the bundled Firebase Cloud Messaging library; see the table); <code>BIND_GET_INSTALL_REFERRER_SERVICE</code> (used by Firebase Analytics to record which store the app was installed from). It does <strong>not</strong> declare the advertising-ID permission. Several of these are merged in by the Google libraries the app bundles rather than used by the app itself.</p>
+<p>The release build declares these permissions: <code>FOREGROUND_SERVICE</code> and <code>FOREGROUND_SERVICE_MEDIA_PLAYBACK</code> (keeps the optional ambient sound playing when you leave the app during a session); <code>INTERNET</code> and <code>ACCESS_NETWORK_STATE</code> (network access, used only for what the table below lists); <code>POST_NOTIFICATIONS</code> (to tell you when a focus block or a break ends, if you switch notifications on); <code>RECEIVE_BOOT_COMPLETED</code> (declared by the bundled notification and background-work libraries; the timer itself does not restart after a reboot); <code>SCHEDULE_EXACT_ALARM</code> (declared by the bundled notification library; it schedules alarms on your device and sends nothing); <code>USE_EXACT_ALARM</code> (so the timer ends exactly on time); <code>WAKE_LOCK</code> (merged in by the Google Firebase / Play libraries); <code>com.android.vending.BILLING</code> (merged in by the bundled Google Play Billing library; this release offers no purchase); <code>com.google.android.c2dm.permission.RECEIVE</code> (merged in by the bundled Firebase Cloud Messaging library, which this app keeps switched off; see the table); <code>BIND_GET_INSTALL_REFERRER_SERVICE</code> (used by Firebase Analytics to record which store the app was installed from). It does <strong>not</strong> declare the advertising-ID permission. Several of these are merged in by the Google libraries the app bundles rather than used by the app itself.</p>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -115,9 +115,14 @@ footer a{color:var(--accent)}
 <td data-label="Why">So we can tell which features are used</td>
 </tr>
 <tr>
+<td data-label="Third party">Google Firebase Remote Config</td>
+<td data-label="What it receives">A Firebase installation ID for this copy of the app, app version, OS version, device language and country</td>
+<td data-label="Why">So we can switch app features on or off without shipping an update</td>
+</tr>
+<tr>
 <td data-label="Third party">Google Firebase Cloud Messaging</td>
-<td data-label="What it receives">A registration token and Firebase installation ID for this copy of the app, created automatically by the bundled messaging library</td>
-<td data-label="Why">None of our own: the app sends no push messages. The library ships inside a shared notifications component</td>
+<td data-label="What it receives">Nothing: the app sends no push messages and switches the bundled messaging library's automatic registration off, so no push token is created</td>
+<td data-label="Why">The library ships inside a shared notifications component</td>
 </tr>
 </tbody>
 </table></div>
@@ -128,7 +133,7 @@ footer a{color:var(--accent)}
 <h2>Children</h2>
 <p>PomoFocus is not directed to children under 13 and we do not knowingly collect data from them.</p>
 <h2>Your rights</h2>
-<p>Everything you create is stored only on your device — delete it in the app at any time, or uninstall to erase everything. For the crash and analytics data listed above, Google acts as the processor — see Google's privacy policy for access and deletion requests.</p>
+<p>Everything you create is stored only on your device. To erase it, clear the app's storage in Android Settings (Apps → PomoFocus → Storage) or uninstall the app. For the crash and analytics data listed above, Google acts as the processor — see Google's privacy policy for access and deletion requests.</p>
 <h2>Changes</h2>
 <p>We may update this policy; the "last updated" date will change accordingly.</p>
 <h2>Contact</h2>
