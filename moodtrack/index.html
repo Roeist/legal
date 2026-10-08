@@ -77,7 +77,7 @@ footer a{color:var(--accent)}
 <nav><a href="../">All apps</a></nav>
 <main>
 <h1>MoodTrack — Privacy Policy</h1>
-<p class="meta">Last updated: 1 August 2026</p>
+<p class="meta">Last updated: 7 October 2026</p>
 <p>MoodTrack ("the app", "we") is built privacy-first: your mood diary stays on your device, encrypted. This policy says exactly what the app does and does not do with your data, including the parts that are less flattering.</p>
 <h2>The short version</h2>
 <ul>
@@ -93,7 +93,7 @@ footer a{color:var(--accent)}
 <p><strong>How it is stored, precisely.</strong> On <strong>Android</strong> — the version distributed on Google Play — your diary is kept in a SQLite database (<code>moodtrack.db</code>) that is <strong>encrypted at rest with SQLCipher</strong>. Every database page is encrypted. The key is a per-install random passphrase generated on your device and held in the Android Keystore-backed secure store; it is never transmitted and we never see it. If your device's keystore cannot return the key, the app tells you and offers a retry — it never silently rotates the key, because that would destroy your entries.</p>
 <p>The app lock (fingerprint / face / device PIN) is an additional, separate gate on the <strong>screen</strong>. The encryption above does not depend on it and applies whether or not you enable it.</p>
 <p>Uninstalling the app permanently deletes this data. We have no copy and cannot recover it.</p>
-<p>A backup you export is a byte-for-byte copy of that same SQLCipher-encrypted database file, so it is still encrypted after it leaves the app. It leaves only through your device's share sheet, to whichever app or person you choose. We never see it. Note that it can only be opened with the key held on the device that produced it.</p>
+<p>The "Share encrypted diary file" action in Settings hands out a byte-for-byte copy of that same SQLCipher-encrypted database file, so it is still encrypted after it leaves the app. It leaves only through your device's share sheet, to whichever app or person you choose. We never see it. <strong>It is not a backup</strong>: the key stays in the keystore of the install that produced the file, MoodTrack has no import or restore screen, and nothing — not MoodTrack on another phone, not MoodTrack after a reinstall, not us — can open it.</p>
 <h2>What the app sends</h2>
 <p>MoodTrack itself declares one permission: <code>USE_BIOMETRIC</code>, for the app lock (the AndroidX biometric library adds <code>USE_FINGERPRINT</code> alongside it for older Android versions). Everything else in the Play Data safety form comes from the libraries below, which merge the following into the final app: <code>INTERNET</code> and <code>ACCESS_NETWORK_STATE</code>; the advertising ID permission <code>com.google.android.gms.permission.AD_ID</code>; the three Android Ad Services permissions <code>ACCESS_ADSERVICES_AD_ID</code>, <code>ACCESS_ADSERVICES_ATTRIBUTION</code> and <code>ACCESS_ADSERVICES_TOPICS</code>; <code>com.android.vending.BILLING</code> and <code>com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE</code> for purchases; and <code>WAKE_LOCK</code> and <code>FOREGROUND_SERVICE</code> — we run no foreground service of our own. Here is each one and what it is for:</p>
 <div class="tw"><table>
@@ -141,7 +141,7 @@ footer a{color:var(--accent)}
 <h2>Children</h2>
 <p>MoodTrack is not directed to children under 13 and we do not knowingly collect data from them.</p>
 <h2>Your rights</h2>
-<p>Your entries are stored only on your device — edit or delete them in-app at any time, or uninstall to erase everything. For the crash and analytics data listed above, Google acts as the processor — see Google's privacy policy for access and deletion requests.</p>
+<p>Your entries are stored only on your device. You can edit today's entry in the app at any time; past days are shown read-only and there is no per-entry delete yet. Uninstalling the app erases every entry permanently, and we hold no copy. For the crash and analytics data listed above, Google acts as the processor — see Google's privacy policy for access and deletion requests.</p>
 <h2>Changes</h2>
 <p>We may update this policy; the "last updated" date will change accordingly.</p>
 <h2>Contact</h2>
