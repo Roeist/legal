@@ -96,7 +96,7 @@ footer a{color:var(--accent)}
 <p><strong>How it is stored, precisely.</strong> Your cycle entries are kept in an ordinary <strong>plaintext SQLite database</strong> (<code>cycleluna.db</code>) inside the app's private storage directory. It is <strong>not encrypted at rest</strong> — the data is not cryptographically scrambled on disk. It is protected by Android's app sandbox, which keeps other apps out, and, if you turn it on, by the app lock (fingerprint / face / device PIN). The app lock gates the <strong>screen</strong>, not the file: it does not encrypt the database. Anyone who can read the device's storage — a rooted phone, an ADB backup, or someone holding your unlocked phone — could read your cycle history.</p>
 <p>We would rather be precise than reassuring. If encryption at rest is a requirement for you, this release does not provide it, and we will not claim otherwise.</p>
 <h2>What the app sends</h2>
-<p>The merged manifest declares <code>INTERNET</code> and <code>ACCESS_NETWORK_STATE</code>; the advertising ID permission <code>com.google.android.gms.permission.AD_ID</code>; the three Android Ad Services permissions <code>ACCESS_ADSERVICES_AD_ID</code>, <code>ACCESS_ADSERVICES_ATTRIBUTION</code> and <code>ACCESS_ADSERVICES_TOPICS</code>; <code>com.android.vending.BILLING</code> and <code>com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE</code> for purchases; and <code>WAKE_LOCK</code> and <code>FOREGROUND_SERVICE</code>, which the Google Play and Firebase libraries merge in — we run no foreground service of our own. The only permission we declare ourselves is <code>USE_BIOMETRIC</code> (plus <code>USE_FINGERPRINT</code>, added by the AndroidX biometric library for older Android versions) for the app lock. Everything else arrives by manifest merge from the libraries below. Here is each one and what it is for:</p>
+<p>The merged manifest declares <code>INTERNET</code> and <code>ACCESS_NETWORK_STATE</code>; <code>com.android.vending.BILLING</code> and <code>com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE</code> for purchases; and <code>WAKE_LOCK</code> and <code>FOREGROUND_SERVICE</code>, which the Google Play and Firebase libraries merge in — we run no foreground service of our own. The only permission we declare ourselves is <code>USE_BIOMETRIC</code> (plus <code>USE_FINGERPRINT</code>, added by the AndroidX biometric library for older Android versions) for the app lock. Everything else arrives by manifest merge from the libraries below. Here is each one and what it is for:</p>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -128,15 +128,15 @@ footer a{color:var(--accent)}
 </tr>
 <tr>
 <td data-label="Third party">Google Mobile Ads SDK</td>
-<td data-label="What it receives">Advertising ID availability</td>
-<td data-label="Why">The SDK is bundled; <strong>ads are switched off in this release</strong> and no ad is requested or shown</td>
+<td data-label="What it receives">Nothing</td>
+<td data-label="Why">The SDK is bundled but <strong>ads are switched off in this release</strong>: no ad is requested or shown, and the app does not use the advertising ID</td>
 </tr>
 </tbody>
 </table></div>
 <p><strong>No cycle data, symptom, note, date or mood ever appears in any of these.</strong> CycleLuna's own events have no parameters, and an automated test in our build (<code>AnalyticsSafetyTest</code>) fails if one of them ever gains a parameter; the purchase-funnel events carry only the purchase details listed above. No log line in the app prints your health data either.</p>
 <p>We never receive your payment card details; those are handled solely by Google.</p>
 <h2>Advertising</h2>
-<p>The Google Mobile Ads SDK ships inside the app but advertising is <strong>switched off</strong> in this release, so no ad is requested and no ad is shown. Because the SDK is present, Android still lists the advertising-ID permission for the app. If we ever turn ads on, we will update this policy and the Play Data safety form before the release that does it.</p>
+<p>The Google Mobile Ads SDK ships inside the app but advertising is <strong>switched off</strong> in this release, so no ad is requested and no ad is shown. The app does <strong>not</strong> use the advertising ID: the advertising-ID permissions the bundled libraries would add are removed from the app, and Firebase Analytics is configured not to collect the advertising ID or send ad-personalization signals. If we ever turn ads on, we will update this policy and the Play Data safety form before the release that does it.</p>
 <h2>Children</h2>
 <p>CycleLuna is not directed to children under 13 and we do not knowingly collect data from them.</p>
 <h2>Your rights</h2>
