@@ -77,7 +77,7 @@ footer a{color:var(--accent)}
 <nav><a href="../">All apps</a></nav>
 <main>
 <h1>CycleLuna — Privacy Policy</h1>
-<p class="meta">Last updated: 1 August 2026</p>
+<p class="meta">Last updated: 9 October 2026</p>
 <p>CycleLuna ("the app", "we") is built privacy-first: your cycle information stays on your device. This policy says exactly what the app does and does not do with your data, including the parts that are less flattering.</p>
 <h2>The short version</h2>
 <ul>
@@ -113,8 +113,8 @@ footer a{color:var(--accent)}
 </tr>
 <tr>
 <td data-label="Third party">Google Firebase Analytics</td>
-<td data-label="What it receives">Event <strong>names</strong> only — e.g. <code>screen_opened</code>, <code>paywall_shown</code> — with <strong>no parameters attached</strong></td>
-<td data-label="Why">So we can tell which screens are used</td>
+<td data-label="What it receives">Event names such as <code>app_open</code>, <code>cycle_logged</code> and <code>insights_viewed</code> with <strong>no parameters</strong>; and, from the Premium screen only, purchase-funnel events (<code>paywall_shown</code>, <code>purchase_succeeded</code>, ...) that carry the screen name, the product id of the plan, the price and currency of a purchase, or the reason a purchase failed. Firebase also attaches its own app-instance identifier</td>
+<td data-label="Why">So we can tell which screens are used and whether Premium works</td>
 </tr>
 <tr>
 <td data-label="Third party">Google Play Billing</td>
@@ -133,7 +133,7 @@ footer a{color:var(--accent)}
 </tr>
 </tbody>
 </table></div>
-<p><strong>No cycle data, symptom, note, date or mood ever appears in any of these.</strong> Our analytics events carry no parameters at all, and an automated test in our build (<code>AnalyticsSafetyTest</code>) fails the build if a parameter is ever added. No log line in the app prints your health data either.</p>
+<p><strong>No cycle data, symptom, note, date or mood ever appears in any of these.</strong> CycleLuna's own events have no parameters, and an automated test in our build (<code>AnalyticsSafetyTest</code>) fails if one of them ever gains a parameter; the purchase-funnel events carry only the purchase details listed above. No log line in the app prints your health data either.</p>
 <p>We never receive your payment card details; those are handled solely by Google.</p>
 <h2>Advertising</h2>
 <p>The Google Mobile Ads SDK ships inside the app but advertising is <strong>switched off</strong> in this release, so no ad is requested and no ad is shown. Because the SDK is present, Android still lists the advertising-ID permission for the app. If we ever turn ads on, we will update this policy and the Play Data safety form before the release that does it.</p>
