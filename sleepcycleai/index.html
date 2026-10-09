@@ -94,7 +94,7 @@ footer a{color:var(--accent)}
 <p>This data lives in local, app-private storage. Uninstalling the app permanently deletes it. We have no copy and cannot recover it.</p>
 <p><strong>How it is stored, precisely.</strong> Your sleep sessions are kept in an ordinary <strong>plaintext SQLite database</strong> (<code>sleepcycleai.db</code>) inside the app's private storage directory. It is <strong>not encrypted</strong>. It is protected by Android's app sandbox — which keeps other apps out — but anyone who can read the device's storage (a rooted phone, an ADB backup, or someone holding your unlocked phone) could read it. SleepCycleAI also has <strong>no app lock or PIN</strong>. We would rather be precise than reassuring: if you need your sleep log to be encrypted at rest, this release does not do that.</p>
 <h2>What the app sends</h2>
-<p>The release manifest declares <code>INTERNET</code> and <code>ACCESS_NETWORK_STATE</code>; the advertising ID permission <code>com.google.android.gms.permission.AD_ID</code>; the three Android Ad Services permissions <code>ACCESS_ADSERVICES_AD_ID</code>, <code>ACCESS_ADSERVICES_ATTRIBUTION</code> and <code>ACCESS_ADSERVICES_TOPICS</code>; <code>com.android.vending.BILLING</code> and <code>com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE</code> for purchases; and <code>com.google.android.c2dm.permission.RECEIVE</code> for push transport. We do not declare any of them ourselves — every one arrives by manifest merge from the libraries below. Here is each one and what it is for:</p>
+<p>The release manifest declares <code>INTERNET</code> and <code>ACCESS_NETWORK_STATE</code>; <code>com.android.vending.BILLING</code> and <code>com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE</code> for purchases; and <code>com.google.android.c2dm.permission.RECEIVE</code> for push transport. We do not declare any of them ourselves — every one arrives by manifest merge from the libraries below. Here is each one and what it is for:</p>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -131,8 +131,8 @@ footer a{color:var(--accent)}
 </tr>
 <tr>
 <td data-label="Third party">Google Mobile Ads SDK</td>
-<td data-label="What it receives">Advertising ID availability</td>
-<td data-label="Why">The SDK is bundled; <strong>ads are switched off in this release</strong> and no ad is requested or shown</td>
+<td data-label="What it receives">Nothing</td>
+<td data-label="Why">The SDK is bundled but <strong>ads are switched off in this release</strong>: no ad is requested or shown, and the app does not use the advertising ID</td>
 </tr>
 </tbody>
 </table></div>
@@ -141,7 +141,7 @@ footer a{color:var(--accent)}
 <h2>Alarms and notifications</h2>
 <p>The smart alarm needs to schedule an exact alarm, hold a wake lock so it can ring, restart itself after your phone reboots, post a notification when it fires and show the ringing screen over the lock screen. That is why the app requests the exact-alarm, wake-lock, boot-completed, notification and full-screen-notification permissions. So that the alarm also survives a restart during the night before you unlock the phone, the time of the next alarm (only that time — no sleep data) is kept in the part of the app's private storage that is readable before the first unlock. Sleep sounds keep playing with the screen off through a media-playback foreground service, which shows a "sleep sound is playing" notification while it runs. Nothing about the alarm or the sounds is sent anywhere.</p>
 <h2>Advertising</h2>
-<p>The Google Mobile Ads SDK ships inside the app but advertising is <strong>switched off</strong> in this release, so no ad is requested and no ad is shown. Because the SDK is present, Android still lists the advertising-ID permission for the app. If we ever turn ads on, we will update this policy and the Play Data safety form before the release that does it.</p>
+<p>The Google Mobile Ads SDK ships inside the app but advertising is <strong>switched off</strong> in this release, so no ad is requested and no ad is shown. The app does <strong>not</strong> use the advertising ID: the advertising-ID permissions the bundled libraries would add are removed from the app, and Firebase Analytics is configured not to collect the advertising ID or send ad-personalization signals. If we ever turn ads on, we will update this policy and the Play Data safety form before the release that does it.</p>
 <h2>Children</h2>
 <p>SleepCycleAI is not directed to children under 13 and we do not knowingly collect data from them.</p>
 <h2>Your rights</h2>
