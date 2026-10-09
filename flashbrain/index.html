@@ -77,7 +77,7 @@ footer a{color:var(--accent)}
 <nav><a href="../">All apps</a></nav>
 <main>
 <h1>FlashBrain — Privacy Policy</h1>
-<p class="meta">Last updated: 1 August 2026</p>
+<p class="meta">Last updated: 9 October 2026</p>
 <p>FlashBrain ("the app", "we") is built privacy-first: your decks and cards stay on your device. This policy says exactly what the app does and does not do with your data, including the parts that are less flattering.</p>
 <h2>The short version</h2>
 <ul>
@@ -94,7 +94,7 @@ footer a{color:var(--accent)}
 <p>This data lives in local, app-private storage. Uninstalling the app permanently deletes it. We have no copy and cannot recover it. Because there is no account, your decks do not follow you to another device — export a CSV if you want to move them.</p>
 <p>A CSV you export leaves the app only through your device's share sheet, to whichever app or person you choose. We never see it.</p>
 <h2>What the app sends</h2>
-<p>The release manifest declares <code>INTERNET</code> and <code>ACCESS_NETWORK_STATE</code>; the advertising ID permission <code>com.google.android.gms.permission.AD_ID</code>; the three Android Ad Services permissions <code>ACCESS_ADSERVICES_AD_ID</code>, <code>ACCESS_ADSERVICES_ATTRIBUTION</code> and <code>ACCESS_ADSERVICES_TOPICS</code>; <code>com.android.vending.BILLING</code> and <code>com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE</code> for purchases; and <code>WAKE_LOCK</code> and <code>FOREGROUND_SERVICE</code>, which the Google Play and Firebase libraries merge in — we run no foreground service of our own. We declare none of these ourselves; every one arrives by manifest merge from the libraries below. Here is each one and what it is for:</p>
+<p>The release manifest declares <code>INTERNET</code> and <code>ACCESS_NETWORK_STATE</code>; <code>com.android.vending.BILLING</code> and <code>com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE</code> for purchases; and <code>WAKE_LOCK</code> and <code>FOREGROUND_SERVICE</code>, which the Google Play and Firebase libraries merge in — we run no foreground service of our own. We declare none of these ourselves; every one arrives by manifest merge from the libraries below. The advertising-ID permissions those libraries would also add (<code>AD_ID</code> and the Android Ad Services permissions) are removed from the app, and Firebase is told not to collect the advertising ID. Here is each third party and what it receives:</p>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -111,8 +111,8 @@ footer a{color:var(--accent)}
 </tr>
 <tr>
 <td data-label="Third party">Google Firebase Analytics</td>
-<td data-label="What it receives">Event <strong>names</strong> only — e.g. <code>screen_opened</code>, <code>paywall_shown</code> — with <strong>no parameters attached</strong></td>
-<td data-label="Why">So we can tell which screens are used</td>
+<td data-label="What it receives">Usage events and a few non-identifying details: <code>app_open</code>; <code>deck_created</code>; <code>review_complete</code> with the number of cards the session reviewed; and for the supporter tip <code>paywall_shown</code> / <code>paywall_dismissed</code> (where it was offered), <code>paywall_cta_tapped</code> / <code>checkout_started</code> (the product id), <code>purchase_succeeded</code> (product id, price, currency), <code>purchase_failed</code> (product id, a failure code), <code>purchase_restored</code> and <code>feature_used</code> (a Restore tap). Firebase also records its own app-instance identifier</td>
+<td data-label="Why">So we can tell which parts of the app are used and whether the tip works</td>
 </tr>
 <tr>
 <td data-label="Third party">Google Play Billing</td>
@@ -126,15 +126,15 @@ footer a{color:var(--accent)}
 </tr>
 <tr>
 <td data-label="Third party">Google Mobile Ads SDK</td>
-<td data-label="What it receives">Advertising ID availability</td>
-<td data-label="Why">The SDK is bundled; <strong>ads are switched off in this release</strong> and no ad is requested or shown</td>
+<td data-label="What it receives">Nothing — it is bundled but <strong>switched off in this release</strong>; no ad is requested or shown</td>
+<td data-label="Why">—</td>
 </tr>
 </tbody>
 </table></div>
-<p><strong>No deck name, card front, card back or review rating ever appears in any of these.</strong> Our analytics events carry no parameters at all.</p>
+<p><strong>No deck name, card front, card back or review rating ever appears in any of these.</strong> The only values attached to analytics events are the ones listed above.</p>
 <p>We never receive your payment card details; those are handled solely by Google.</p>
 <h2>Advertising</h2>
-<p>The Google Mobile Ads SDK ships inside the app but advertising is <strong>switched off</strong> in this release, so no ad is requested and no ad is shown. Because the SDK is present, Android still lists the advertising-ID permission for the app. If we ever turn ads on, we will update this policy and the Play Data safety form before the release that does it.</p>
+<p>The Google Mobile Ads SDK ships inside the app but advertising is <strong>switched off</strong> in this release, so no ad is requested and no ad is shown. The app does not use your advertising ID: the permission is removed from the app and Firebase's advertising-ID collection is turned off. If we ever turn ads on, we will update this policy and the Play Data safety form before the release that does it.</p>
 <h2>Children</h2>
 <p>FlashBrain is not directed to children under 13 and we do not knowingly collect data from them.</p>
 <h2>Your rights</h2>
