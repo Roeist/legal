@@ -77,7 +77,7 @@ footer a{color:var(--accent)}
 <nav><a href="../">All apps</a></nav>
 <main>
 <h1>MoodTrack — Privacy Policy</h1>
-<p class="meta">Last updated: 8 October 2026</p>
+<p class="meta">Last updated: 9 October 2026</p>
 <p>MoodTrack ("the app", "we") is built privacy-first: your mood diary stays on your device, encrypted. This policy says exactly what the app does and does not do with your data, including the parts that are less flattering.</p>
 <h2>The short version</h2>
 <ul>
@@ -95,7 +95,7 @@ footer a{color:var(--accent)}
 <p>Uninstalling the app permanently deletes this data. We have no copy and cannot recover it.</p>
 <p>The "Share encrypted diary file" action in Settings hands out a byte-for-byte copy of that same SQLCipher-encrypted database file, so it is still encrypted after it leaves the app. It leaves only through your device's share sheet, to whichever app or person you choose. We never see it. <strong>It is not a backup</strong>: the key stays in the keystore of the install that produced the file, MoodTrack has no import or restore screen, and nothing — not MoodTrack on another phone, not MoodTrack after a reinstall, not us — can open it.</p>
 <h2>What the app sends</h2>
-<p>MoodTrack itself declares one permission: <code>USE_BIOMETRIC</code>, for the app lock (the AndroidX biometric library adds <code>USE_FINGERPRINT</code> alongside it for older Android versions). Everything else in the Play Data safety form comes from the libraries below, which merge the following into the final app: <code>INTERNET</code> and <code>ACCESS_NETWORK_STATE</code>; the advertising ID permission <code>com.google.android.gms.permission.AD_ID</code>; the three Android Ad Services permissions <code>ACCESS_ADSERVICES_AD_ID</code>, <code>ACCESS_ADSERVICES_ATTRIBUTION</code> and <code>ACCESS_ADSERVICES_TOPICS</code>; <code>com.android.vending.BILLING</code> and <code>com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE</code> for purchases; and <code>WAKE_LOCK</code> and <code>FOREGROUND_SERVICE</code> — we run no foreground service of our own. Here is each one and what it is for:</p>
+<p>MoodTrack itself declares one permission: <code>USE_BIOMETRIC</code>, for the app lock (the AndroidX biometric library adds <code>USE_FINGERPRINT</code> alongside it for older Android versions). Everything else in the Play Data safety form comes from the libraries below, which merge the following into the final app: <code>INTERNET</code> and <code>ACCESS_NETWORK_STATE</code>; <code>com.android.vending.BILLING</code> and <code>com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE</code> for purchases; and <code>WAKE_LOCK</code> and <code>FOREGROUND_SERVICE</code> — we run no foreground service of our own. Here is each one and what it is for:</p>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -127,8 +127,8 @@ footer a{color:var(--accent)}
 </tr>
 <tr>
 <td data-label="Third party">Google Mobile Ads SDK</td>
-<td data-label="What it receives">Advertising ID availability</td>
-<td data-label="Why">The SDK is bundled; <strong>ads are switched off in this release</strong> and no ad is requested or shown</td>
+<td data-label="What it receives">Nothing</td>
+<td data-label="Why">The SDK is bundled but <strong>ads are switched off in this release</strong>: no ad is requested or shown, and the app does not use the advertising ID</td>
 </tr>
 </tbody>
 </table></div>
@@ -137,7 +137,7 @@ footer a{color:var(--accent)}
 <h2>What the app never touches</h2>
 <p>No camera. No microphone. No location. No contacts. No access to any other app's data.</p>
 <h2>Advertising</h2>
-<p>The Google Mobile Ads SDK ships inside the app but advertising is <strong>switched off</strong> in this release, so no ad is requested and no ad is shown. Because the SDK is present, Android still lists the advertising-ID permission for the app. If we ever turn ads on, we will update this policy and the Play Data safety form before the release that does it.</p>
+<p>The Google Mobile Ads SDK ships inside the app but advertising is <strong>switched off</strong> in this release, so no ad is requested and no ad is shown. The app does <strong>not</strong> use the advertising ID: the advertising-ID permissions the bundled libraries would add are removed from the app, and Firebase Analytics is configured not to collect the advertising ID or send ad-personalization signals. If we ever turn ads on, we will update this policy and the Play Data safety form before the release that does it.</p>
 <h2>Children</h2>
 <p>MoodTrack is not directed to children under 13 and we do not knowingly collect data from them.</p>
 <h2>Your rights</h2>
