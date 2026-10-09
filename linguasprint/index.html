@@ -77,13 +77,13 @@ footer a{color:var(--accent)}
 <nav><a href="../">All apps</a></nav>
 <main>
 <h1>LinguaSprint — Privacy Policy</h1>
-<p class="meta">Last updated: 1 August 2026</p>
+<p class="meta">Last updated: 9 October 2026</p>
 <p>LinguaSprint ("the app", "we") is built privacy-first: your learning progress stays on your device. This policy says exactly what the app does and does not do with your data, including the parts that are less flattering.</p>
 <h2>The short version</h2>
 <ul>
 <li><strong>Your lesson progress never leaves your phone.</strong> It is stored in app-private storage on your device and is never uploaded to us or to anyone else.</li>
 <li><strong>We do not require an account.</strong> No login, no email, no profile.</li>
-<li><strong>We never sell or rent your data</strong>, and we never share what you type or how you answer.</li>
+<li><strong>We never sell or rent your data.</strong> You never type anything into the app; the usage counts we receive are listed below, including the few details some of them carry.</li>
 <li><strong>The app does connect to the internet.</strong> Not for your progress — for crash reports, anonymous usage counts and purchases. Section "What the app sends" lists every one of them.</li>
 </ul>
 <h2>What is stored on your device only (never transmitted)</h2>
@@ -93,7 +93,7 @@ footer a{color:var(--accent)}
 <p>This data lives in local, app-private storage. Uninstalling the app permanently deletes it. We have no copy and cannot recover it. Because there is no account, progress does not follow you to another device.</p>
 <p>The lessons themselves are bundled inside the app as JSON, so studying works with the connection turned off.</p>
 <h2>What the app sends</h2>
-<p>The merged manifest declares <code>INTERNET</code> and <code>ACCESS_NETWORK_STATE</code>; the advertising ID permission <code>com.google.android.gms.permission.AD_ID</code>; the three Android Ad Services permissions <code>ACCESS_ADSERVICES_AD_ID</code>, <code>ACCESS_ADSERVICES_ATTRIBUTION</code> and <code>ACCESS_ADSERVICES_TOPICS</code>; <code>com.android.vending.BILLING</code> and <code>com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE</code> for purchases; and <code>WAKE_LOCK</code> and <code>FOREGROUND_SERVICE</code>, which the Google Play and Firebase libraries merge in — we run no foreground service of our own. We declare none of these ourselves; every one arrives by manifest merge from the libraries below. Here is each one and what it is for:</p>
+<p>The merged manifest declares <code>INTERNET</code> and <code>ACCESS_NETWORK_STATE</code>; <code>com.android.vending.BILLING</code> and <code>com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE</code> for purchases; and <code>WAKE_LOCK</code> and <code>FOREGROUND_SERVICE</code>, which the Google Play and Firebase libraries merge in — we run no foreground service of our own. We declare none of these ourselves; every one arrives by manifest merge from the libraries below. Here is each one and what it is for:</p>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -110,8 +110,8 @@ footer a{color:var(--accent)}
 </tr>
 <tr>
 <td data-label="Third party">Google Firebase Analytics</td>
-<td data-label="What it receives">Event <strong>names</strong> only — e.g. <code>lesson_started</code>, <code>paywall_shown</code> — with <strong>no parameters attached</strong></td>
-<td data-label="Why">So we can tell which lessons are reached</td>
+<td data-label="What it receives">Event names — <code>app_open</code>, <code>lesson_complete</code> (with the lesson id and your score in percent for that lesson), <code>xp_earned</code> (lesson id and the XP it added) — and, from the Premium screen only, purchase-funnel events (<code>paywall_shown</code>, <code>purchase_succeeded</code>, ...) that carry the screen name, the product id of the plan, its price and currency, or the reason a purchase failed. Firebase also attaches its own app-instance identifier</td>
+<td data-label="Why">So we can tell which lessons are reached and whether Premium works</td>
 </tr>
 <tr>
 <td data-label="Third party">Google Play Billing</td>
@@ -125,21 +125,21 @@ footer a{color:var(--accent)}
 </tr>
 <tr>
 <td data-label="Third party">Google Mobile Ads SDK</td>
-<td data-label="What it receives">Advertising ID availability</td>
-<td data-label="Why">The SDK is bundled; <strong>ads are switched off in this release</strong> and no ad is requested or shown</td>
+<td data-label="What it receives">Nothing</td>
+<td data-label="Why">The SDK is bundled but <strong>ads are switched off in this release</strong>: no ad is requested or shown, and the app does not use the advertising ID</td>
 </tr>
 </tbody>
 </table></div>
-<p><strong>Nothing you type, and no answer you give, ever appears in any of these.</strong> Our analytics events carry no parameters at all.</p>
+<p><strong>You never type anything into the app, and nothing that identifies you appears in any of these.</strong> A lesson's score in percent is the only learning result we receive; which tiles you tapped, and in what order, never leaves the device.</p>
 <p>We never receive your payment card details; those are handled solely by Google.</p>
 <h2>Text-to-speech</h2>
 <p>Pronunciation is spoken by the text-to-speech engine already installed on your device. Which engine that is, and whether it processes text on the device or on its vendor's servers, is set by your device and its own privacy policy — not by us. The text we hand it is the lesson text bundled in the app, never anything you wrote.</p>
 <h2>Advertising</h2>
-<p>The Google Mobile Ads SDK ships inside the app but advertising is <strong>switched off</strong> in this release, so no ad is requested and no ad is shown. Because the SDK is present, Android still lists the advertising-ID permission for the app. If we ever turn ads on, we will update this policy and the Play Data safety form before the release that does it.</p>
+<p>The Google Mobile Ads SDK ships inside the app but advertising is <strong>switched off</strong> in this release, so no ad is requested and no ad is shown. The app does <strong>not</strong> use the advertising ID: the advertising-ID permissions the bundled libraries would add are removed from the app, and Firebase Analytics is configured not to collect the advertising ID or send ad-personalization signals. If we ever turn ads on, we will update this policy and the Play Data safety form before the release that does it.</p>
 <h2>Children</h2>
 <p>LinguaSprint is not directed to children under 13 and we do not knowingly collect data from them.</p>
 <h2>Your rights</h2>
-<p>Your learning data is stored only on your device — clear it in-app or uninstall to erase everything. For the crash and analytics data listed above, Google acts as the processor — see Google's privacy policy for access and deletion requests.</p>
+<p>Your learning data is stored only on your device. The app has no reset button: to erase everything, clear the app's storage in Android Settings or uninstall it. For the crash and analytics data listed above, Google acts as the processor — see Google's privacy policy for access and deletion requests.</p>
 <h2>Changes</h2>
 <p>We may update this policy; the "last updated" date will change accordingly.</p>
 <h2>Contact</h2>
