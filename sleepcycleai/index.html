@@ -77,7 +77,7 @@ footer a{color:var(--accent)}
 <nav><a href="../">All apps</a></nav>
 <main>
 <h1>SleepCycleAI — Privacy Policy</h1>
-<p class="meta">Last updated: 1 August 2026</p>
+<p class="meta">Last updated: 9 October 2026</p>
 <p>SleepCycleAI ("the app", "we") is built privacy-first: your sleep log stays on your device. This policy says exactly what the app does and does not do with your data, including the parts that are less flattering.</p>
 <h2>The short version</h2>
 <ul>
@@ -111,8 +111,8 @@ footer a{color:var(--accent)}
 </tr>
 <tr>
 <td data-label="Third party">Google Firebase Analytics</td>
-<td data-label="What it receives">Event <strong>names</strong> only — e.g. <code>screen_opened</code>, <code>paywall_shown</code> — with <strong>no parameters attached</strong></td>
-<td data-label="Why">So we can tell which screens are used</td>
+<td data-label="What it receives">Event <strong>names</strong> — <code>app_open</code>, <code>alarm_set</code>, <code>session_logged</code> — with nothing attached. The upgrade (PRO) screen's events also carry where it was opened, the plan picked, its price and currency, and why a purchase failed</td>
+<td data-label="Why">So we can tell which features are used and whether the upgrade screen works</td>
 </tr>
 <tr>
 <td data-label="Third party">Google Firebase Cloud Messaging</td>
@@ -136,16 +136,16 @@ footer a{color:var(--accent)}
 </tr>
 </tbody>
 </table></div>
-<p><strong>No bedtime, wake time, quality score or sleep session ever appears in any of these.</strong> Our analytics events carry no parameters at all, and an automated test in our build (<code>AnalyticsSafetyTest</code>) fails the build if a parameter is ever added. No log line in the app prints your sleep data either.</p>
+<p><strong>No bedtime, wake time, quality score or sleep session ever appears in any of these.</strong> The app's own analytics events are bare names, and an automated test in our build (<code>AnalyticsSafetyTest</code>) fails the build if anything is ever attached to them. No log line in the app prints your sleep data either.</p>
 <p>We never receive your payment card details; those are handled solely by Google.</p>
 <h2>Alarms and notifications</h2>
-<p>The smart alarm needs to schedule an exact alarm, hold a wake lock so it can ring, restart itself after your phone reboots, and post a notification when it fires. That is why the app requests the exact-alarm, wake-lock, boot-completed and notification permissions. Nothing about the alarm is sent anywhere.</p>
+<p>The smart alarm needs to schedule an exact alarm, hold a wake lock so it can ring, restart itself after your phone reboots, post a notification when it fires and show the ringing screen over the lock screen. That is why the app requests the exact-alarm, wake-lock, boot-completed, notification and full-screen-notification permissions. So that the alarm also survives a restart during the night before you unlock the phone, the time of the next alarm (only that time — no sleep data) is kept in the part of the app's private storage that is readable before the first unlock. Sleep sounds keep playing with the screen off through a media-playback foreground service, which shows a "sleep sound is playing" notification while it runs. Nothing about the alarm or the sounds is sent anywhere.</p>
 <h2>Advertising</h2>
 <p>The Google Mobile Ads SDK ships inside the app but advertising is <strong>switched off</strong> in this release, so no ad is requested and no ad is shown. Because the SDK is present, Android still lists the advertising-ID permission for the app. If we ever turn ads on, we will update this policy and the Play Data safety form before the release that does it.</p>
 <h2>Children</h2>
 <p>SleepCycleAI is not directed to children under 13 and we do not knowingly collect data from them.</p>
 <h2>Your rights</h2>
-<p>Your sleep data is stored only on your device — edit or delete it in-app at any time, or uninstall to erase everything. For the crash and analytics data listed above, Google acts as the processor — see Google's privacy policy for access and deletion requests.</p>
+<p>Your sleep data is stored only on your device. This release has no way to edit or delete a single night inside the app; uninstalling the app (or clearing its storage in Android Settings) erases everything. For the crash and analytics data listed above, Google acts as the processor — see Google's privacy policy for access and deletion requests.</p>
 <h2>Changes</h2>
 <p>We may update this policy; the "last updated" date will change accordingly.</p>
 <h2>Contact</h2>
