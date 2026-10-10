@@ -77,7 +77,7 @@ footer a{color:var(--accent)}
 <nav><a href="../">All apps</a></nav>
 <main>
 <h1>PDFLite — Privacy Policy</h1>
-<p class="meta">Last updated: 6 October 2026</p>
+<p class="meta">Last updated: 11 October 2026</p>
 <p>PDFLite ("the app", "we") opens and annotates PDF files on your device. This policy says exactly what the app does and does not do with your data.</p>
 <h2>The short version</h2>
 <ul>
@@ -92,11 +92,12 @@ footer a{color:var(--accent)}
 <li>A list of recently opened files (file name, page count, last page read, and the system's link to the file).</li>
 <li>Your highlights, drawings and notes for each document.</li>
 <li>Your settings.</li>
+<li>While a PDF is open, a temporary copy of it in the app's cache (the PDF renderer needs one). It is deleted when you leave the document, or - if the app was closed abruptly - the next time the app starts.</li>
 </ul>
 <p>This data lives in local, app-private storage. Android's cloud backup is switched off for this app, so it is not copied to your Google account either. Uninstalling the app permanently deletes it. We have no copy and cannot recover it.</p>
 <h2>Device features the app uses</h2>
 <ul>
-<li><strong>Files</strong> — the app opens only the PDFs you pick through Android's file picker, which grants access to that file alone. The app declares no storage permission.</li>
+<li><strong>Files</strong> — the app opens only the PDFs you pick through Android's file picker, or that you open with PDFLite from another app (Files, Downloads, Drive, a mail attachment). Either way Android grants access to that one file alone. The app declares no storage permission.</li>
 </ul>
 <h2>What the app sends</h2>
 <p>The release build declares these permissions: <code>FOREGROUND_SERVICE</code> (merged in by the Google Firebase / Play libraries; the app runs no foreground service of its own); <code>INTERNET</code> and <code>ACCESS_NETWORK_STATE</code> (network access, used only for what the table below lists); <code>WAKE_LOCK</code> (merged in by the Google Firebase / Play libraries); <code>BIND_GET_INSTALL_REFERRER_SERVICE</code> (used by Firebase Analytics to record which store the app was installed from). It does <strong>not</strong> declare the advertising-ID permission. Several of these are merged in by the Google libraries the app bundles rather than used by the app itself.</p>
@@ -128,7 +129,7 @@ footer a{color:var(--accent)}
 <h2>Children</h2>
 <p>PDFLite is not directed to children under 13 and we do not knowingly collect data from them.</p>
 <h2>Your rights</h2>
-<p>Everything you create is stored only on your device — delete it in the app at any time, or uninstall to erase everything. For the crash and analytics data listed above, Google acts as the processor — see Google's privacy policy for access and deletion requests.</p>
+<p>Everything you create is stored only on your device. Erase a highlight, drawing or note with the eraser in the document. Removing a file from Recent files, or clearing the list in Settings, deletes its entry and reading position but keeps its annotations, so they are back when you open that file again. Uninstalling the app (or clearing its storage in Android's settings) erases everything. For the crash and analytics data listed above, Google acts as the processor — see Google's privacy policy for access and deletion requests.</p>
 <h2>Changes</h2>
 <p>We may update this policy; the "last updated" date will change accordingly.</p>
 <h2>Contact</h2>
