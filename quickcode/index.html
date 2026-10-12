@@ -77,11 +77,11 @@ footer a{color:var(--accent)}
 <nav><a href="../">All apps</a></nav>
 <main>
 <h1>QuickCode — Privacy Policy</h1>
-<p class="meta">Last updated: 6 October 2026</p>
+<p class="meta">Last updated: 12 October 2026</p>
 <p>QuickCode ("the app", "we") stores and organises your code snippets on your device. This policy says exactly what the app does and does not do with your data.</p>
 <h2>The short version</h2>
 <ul>
-<li><strong>Your snippets never leave your phone.</strong> Everything stays in app-private storage on your device and is never uploaded to us or to anyone else.</li>
+<li><strong>Your snippets never leave your phone on their own.</strong> Everything stays in app-private storage on your device and is never uploaded to us or to anyone else. A snippet leaves the app only when you copy or share it yourself.</li>
 <li><strong>No account.</strong> No login, no email, no profile.</li>
 <li><strong>We never sell or rent your data</strong>, and we never share your content with anyone.</li>
 <li><strong>The app does connect to the internet</strong> — only when you import a GitHub Gist, and for crash reports, anonymous usage counts and the Google services listed below. Section "What the app sends" lists every one of them.</li>
@@ -106,12 +106,12 @@ footer a{color:var(--accent)}
 <tbody>
 <tr>
 <td data-label="Third party">GitHub (api.github.com)</td>
-<td data-label="What it receives">The ID of the public Gist you ask to import; like any web request it reveals your IP address</td>
+<td data-label="What it receives">The ID of the public Gist you ask to import; like any web request it reveals your IP address. No GitHub account, login or token is used, and nothing from your library is sent</td>
 <td data-label="Why">To download that Gist, only when you tap Import</td>
 </tr>
 <tr>
 <td data-label="Third party">Google Firebase Crashlytics</td>
-<td data-label="What it receives">Crash stack traces, device model, OS version, app version</td>
+<td data-label="What it receives">Crash stack traces, device model, OS version, app version, a Firebase installation ID (a random identifier for this installation, reset when you reinstall) and app session events (when the app starts a session, so crash rates can be measured)</td>
 <td data-label="Why">So we can fix crashes</td>
 </tr>
 <tr>
@@ -122,6 +122,7 @@ footer a{color:var(--accent)}
 </tbody>
 </table></div>
 <p>No snippet title, code or tag ever appears in any of these.</p>
+<p><strong>One Tap Run.</strong> Previewing an HTML, CSS or JavaScript snippet runs it in a web view inside the app, on your device. If your own code loads something from the web (a script, a stylesheet, an image, a <code>fetch</code> call), the web view requests it from the server your code names, as a browser would. QuickCode itself sends nothing there.</p>
 <p>Crash reports and analytics are processed by Google on our behalf under <a href="https://policies.google.com/privacy">Google's privacy policy</a>.</p>
 <h2>Advertising</h2>
 <p>The app shows <strong>no ads</strong>. An advertising library is bundled with the code but is switched off in this release: no ad is requested and no ad is shown. The app's manifest removes the advertising-ID permission (<code>com.google.android.gms.permission.AD_ID</code>) and the Android Ad Services permissions, and Firebase Analytics is configured not to collect the advertising ID. If we ever turn ads on, we will update this policy and the Play Data safety form before the release that does it.</p>
