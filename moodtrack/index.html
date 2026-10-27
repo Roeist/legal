@@ -77,7 +77,7 @@ footer a{color:var(--accent)}
 <nav><a href="../">All apps</a></nav>
 <main>
 <h1>MoodTrack — Privacy Policy</h1>
-<p class="meta">Last updated: 9 October 2026</p>
+<p class="meta">Last updated: 27 October 2026</p>
 <p>MoodTrack ("the app", "we") is built privacy-first: your mood diary stays on your device, encrypted. This policy says exactly what the app does and does not do with your data, including the parts that are less flattering.</p>
 <h2>The short version</h2>
 <ul>
@@ -95,7 +95,7 @@ footer a{color:var(--accent)}
 <p>Uninstalling the app permanently deletes this data. We have no copy and cannot recover it.</p>
 <p>The "Share encrypted diary file" action in Settings hands out a byte-for-byte copy of that same SQLCipher-encrypted database file, so it is still encrypted after it leaves the app. It leaves only through your device's share sheet, to whichever app or person you choose. We never see it. <strong>It is not a backup</strong>: the key stays in the keystore of the install that produced the file, MoodTrack has no import or restore screen, and nothing — not MoodTrack on another phone, not MoodTrack after a reinstall, not us — can open it.</p>
 <h2>What the app sends</h2>
-<p>MoodTrack itself declares one permission: <code>USE_BIOMETRIC</code>, for the app lock (the AndroidX biometric library adds <code>USE_FINGERPRINT</code> alongside it for older Android versions). Everything else in the Play Data safety form comes from the libraries below, which merge the following into the final app: <code>INTERNET</code> and <code>ACCESS_NETWORK_STATE</code>; <code>com.android.vending.BILLING</code> and <code>com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE</code> for purchases; and <code>WAKE_LOCK</code> and <code>FOREGROUND_SERVICE</code> — we run no foreground service of our own. Here is each one and what it is for:</p>
+<p>MoodTrack itself declares one permission: <code>USE_BIOMETRIC</code>, for the app lock (the AndroidX biometric library adds <code>USE_FINGERPRINT</code> alongside it for older Android versions). Everything else in the Play Data safety form comes from the libraries below, which merge the following into the final app: <code>INTERNET</code> and <code>ACCESS_NETWORK_STATE</code>; <code>com.android.vending.BILLING</code> and <code>com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE</code>, which Firebase Analytics uses to record which store the app was installed from; and <code>WAKE_LOCK</code> and <code>FOREGROUND_SERVICE</code> — we run no foreground service of our own. Here is each one and what it is for:</p>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -107,13 +107,13 @@ footer a{color:var(--accent)}
 <tbody>
 <tr>
 <td data-label="Third party">Google Firebase Crashlytics</td>
-<td data-label="What it receives">Crash stack traces, device model, OS version</td>
+<td data-label="What it receives">Crash stack traces, device model, OS version, app version; a Firebase installation ID for this copy of the app and app-session start events (sent to Firebase's logging service)</td>
 <td data-label="Why">So we can fix crashes</td>
 </tr>
 <tr>
 <td data-label="Third party">Google Firebase Analytics</td>
-<td data-label="What it receives">Event <strong>names</strong> only — e.g. <code>screen_opened</code>, <code>paywall_shown</code> — with <strong>no parameters attached</strong></td>
-<td data-label="Why">So we can tell which screens are used</td>
+<td data-label="What it receives">MoodTrack's own events <code>app_open</code>, <code>mood_logged</code> (an entry was saved), <code>entry_deleted</code> and <code>insights_viewed</code>, as bare names with <strong>nothing attached</strong>. Two install-funnel events, each sent once per install: <code>first_run</code> (nothing attached) and <code>activation_completed</code> with the fixed value <code>first_mood_saved</code> (the first time an entry is saved - never the entry). A user property <code>is_premium</code> (true or false: whether PRO is active on this copy). From the upgrade (PRO) screen only: <code>paywall_shown</code> / <code>paywall_dismissed</code> (where it was opened), <code>paywall_cta_tapped</code> / <code>checkout_started</code> (the product id of the plan), <code>purchase_succeeded</code> (product id, price, currency), <code>purchase_failed</code> (a failure code), <code>purchase_restored</code>, and <code>feature_used</code> (a tap on Restore purchases). Plus what Firebase records automatically for every app: an app-instance ID that resets when you reinstall, device model, OS version, app version and an approximate country derived from your IP address</td>
+<td data-label="Why">So we can tell how many installs really start using the app, which features are used, and whether the upgrade screen works</td>
 </tr>
 <tr>
 <td data-label="Third party">Google Play Billing</td>
@@ -132,7 +132,7 @@ footer a{color:var(--accent)}
 </tr>
 </tbody>
 </table></div>
-<p><strong>No rating, journal text, tag, date or entry id ever appears in any of these.</strong> Our analytics events carry no parameters at all, and an automated test in our build (<code>AnalyticsSafetyTest</code>) fails the build if a parameter is ever added. No log line in the app prints your entries either.</p>
+<p><strong>No rating, journal text, tag, date or entry id ever appears in any of these.</strong> MoodTrack's own diary events are bare names, and an automated test in our build (<code>AnalyticsSafetyTest</code>) fails the build if anything is ever attached to them; <code>activation_completed</code> carries only the fixed word <code>first_mood_saved</code> (<code>FunnelAnalyticsTest</code> checks it). No log line in the app prints your entries either.</p>
 <p>We never receive your payment card details; those are handled solely by Google.</p>
 <h2>What the app never touches</h2>
 <p>No camera. No microphone. No location. No contacts. No access to any other app's data.</p>
@@ -142,6 +142,8 @@ footer a{color:var(--accent)}
 <p>MoodTrack is not directed to children under 13 and we do not knowingly collect data from them.</p>
 <h2>Your rights</h2>
 <p>Your entries are stored only on your device. You can edit today's entry in the app at any time, and you can delete any day's entry from the app: open the day from the Timeline and tap "Delete entry" (a confirmation follows; there is no undo). A deleted entry is removed from the encrypted database on your device immediately, and we hold no copy of it. Past days are otherwise shown read-only. Uninstalling the app erases every entry permanently, and we hold no copy. For the crash and analytics data listed above, Google acts as the processor — see Google's privacy policy for access and deletion requests.</p>
+<h2>Terms of Use</h2>
+<p>Buying PRO is covered by the Terms of Use: https://roeist.github.io/legal/moodtrack/terms/</p>
 <h2>Changes</h2>
 <p>We may update this policy; the "last updated" date will change accordingly.</p>
 <h2>Contact</h2>
