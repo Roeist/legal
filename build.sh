@@ -141,7 +141,7 @@ CSS
 
 # page <slug> <title> <canonical-path> <body-file>
 page() {
-  local out="$1" title="$2" canonical="$3" bodyfile="$4" nav="$5"
+  local out="$1" title="$2" canonical="$3" bodyfile="$4" nav="$5" srcname="${6:-privacy-policy}"
   {
     printf '<!doctype html>\n<html lang="en">\n<head>\n'
     printf '<meta charset="utf-8">\n'
@@ -157,7 +157,7 @@ page() {
     printf '</main>\n'
     printf '<footer>\n'
     printf '<p>Contact: <a href="mailto:%s">%s</a></p>\n' "$CONTACT_EMAIL" "$CONTACT_EMAIL"
-    printf '<p>This page is generated from the app&rsquo;s privacy-policy source file. Do not edit it by hand.</p>\n'
+    printf '<p>This page is generated from the app&rsquo;s %s source file. Do not edit it by hand.</p>\n' "$srcname"
     printf '</footer>\n</body>\n</html>\n'
   } >"$out"
 }
@@ -187,6 +187,20 @@ for entry in "${APPS[@]}"; do
        "$BASE_URL/$slug/" \
        "$tmp" \
        '<a href="../">All apps</a>'
+
+  # Optional Terms of Use (apps that sell something): store-listing/terms-of-use.md -> <slug>/terms/
+  terms="$APPS_ROOT/$dir/store-listing/terms-of-use.md"
+  if [ -f "$terms" ]; then
+    mkdir -p "$slug/terms"
+    awk -f tools/md2html.awk "$terms" >"$tmp"
+    page "$slug/terms/index.html" \
+         "$name — Terms of Use" \
+         "$BASE_URL/$slug/terms/" \
+         "$tmp" \
+         '<a href="../../">All apps</a> · <a href="../">Privacy policy</a>' \
+         "terms-of-use"
+    echo "built  $slug/terms/index.html   (from $terms)"
+  fi
 
   updated="$(sed -n 's/^_Last updated: \(.*\)_$/\1/p' "$src" | head -n1)"
   index_items="$index_items      <li><a href=\"$slug/\">$name<span>Privacy policy — updated $updated</span></a></li>
