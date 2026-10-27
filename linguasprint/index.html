@@ -77,7 +77,7 @@ footer a{color:var(--accent)}
 <nav><a href="../">All apps</a></nav>
 <main>
 <h1>LinguaSprint — Privacy Policy</h1>
-<p class="meta">Last updated: 9 October 2026</p>
+<p class="meta">Last updated: 27 October 2026</p>
 <p>LinguaSprint ("the app", "we") is built privacy-first: your learning progress stays on your device. This policy says exactly what the app does and does not do with your data, including the parts that are less flattering.</p>
 <h2>The short version</h2>
 <ul>
@@ -93,7 +93,7 @@ footer a{color:var(--accent)}
 <p>This data lives in local, app-private storage. Uninstalling the app permanently deletes it. We have no copy and cannot recover it. Because there is no account, progress does not follow you to another device.</p>
 <p>The lessons themselves are bundled inside the app as JSON, so studying works with the connection turned off.</p>
 <h2>What the app sends</h2>
-<p>The merged manifest declares <code>INTERNET</code> and <code>ACCESS_NETWORK_STATE</code>; <code>com.android.vending.BILLING</code> and <code>com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE</code> for purchases; and <code>WAKE_LOCK</code> and <code>FOREGROUND_SERVICE</code>, which the Google Play and Firebase libraries merge in — we run no foreground service of our own. We declare none of these ourselves; every one arrives by manifest merge from the libraries below. Here is each one and what it is for:</p>
+<p>The merged manifest declares <code>INTERNET</code> and <code>ACCESS_NETWORK_STATE</code>; <code>com.android.vending.BILLING</code> for purchases; <code>com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE</code>, which Firebase Analytics uses to record which store the app was installed from; and <code>WAKE_LOCK</code> and <code>FOREGROUND_SERVICE</code>, which the Google Play and Firebase libraries merge in — we run no foreground service of our own. We declare none of these ourselves; every one arrives by manifest merge from the libraries below. Here is each one and what it is for:</p>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -105,23 +105,23 @@ footer a{color:var(--accent)}
 <tbody>
 <tr>
 <td data-label="Third party">Google Firebase Crashlytics</td>
-<td data-label="What it receives">Crash stack traces, device model, OS version</td>
+<td data-label="What it receives">Crash stack traces, device model, OS version, app version; a Firebase installation ID for this copy of the app and app-session start events (sent to Firebase's logging service)</td>
 <td data-label="Why">So we can fix crashes</td>
 </tr>
 <tr>
 <td data-label="Third party">Google Firebase Analytics</td>
-<td data-label="What it receives">Event names — <code>app_open</code>, <code>lesson_complete</code> (with the lesson id and your score in percent for that lesson), <code>xp_earned</code> (lesson id and the XP it added) — and, from the Premium screen only, purchase-funnel events (<code>paywall_shown</code>, <code>purchase_succeeded</code>, ...) that carry the screen name, the product id of the plan, its price and currency, or the reason a purchase failed. Firebase also attaches its own app-instance identifier</td>
-<td data-label="Why">So we can tell which lessons are reached and whether Premium works</td>
+<td data-label="What it receives">LinguaSprint's own events: <code>app_open</code> (nothing attached), <code>lesson_complete</code> (the lesson id and your score in percent for that lesson) and <code>xp_earned</code> (the lesson id and the XP it added). Two install-funnel events, each sent once per install: <code>first_run</code> (nothing attached) and <code>activation_completed</code> with the fixed value <code>first_lesson_completed</code> (the first time you finish a lesson). A user property <code>is_premium</code> (true or false: whether PRO is active on this copy). From the PRO screen only: <code>paywall_shown</code> / <code>paywall_dismissed</code> (which screen opened it), <code>paywall_cta_tapped</code> / <code>checkout_started</code> (the product id of the plan), <code>purchase_succeeded</code> (product id, price, currency), <code>purchase_failed</code> (a failure code), <code>purchase_restored</code>, and <code>feature_used</code> with the fixed value <code>purchase_restore_tapped</code> (a tap on Restore purchases). Plus what Firebase records automatically for every app: an app-instance ID that resets when you reinstall, device model, OS version, app version, the store the app was installed from (install referrer) and an approximate country derived from your IP address</td>
+<td data-label="Why">So we can tell how many installs really start learning, which lessons are reached, and whether the PRO screen works</td>
 </tr>
 <tr>
 <td data-label="Third party">Google Play Billing</td>
 <td data-label="What it receives">Your purchase</td>
-<td data-label="Why">So Premium can be sold</td>
+<td data-label="Why">So PRO can be sold</td>
 </tr>
 <tr>
 <td data-label="Third party">RevenueCat</td>
 <td data-label="What it receives">Your purchase / entitlement status and an anonymous app user ID</td>
-<td data-label="Why">So Premium follows you to a new device</td>
+<td data-label="Why">So PRO follows you to a new device</td>
 </tr>
 <tr>
 <td data-label="Third party">Google Mobile Ads SDK</td>
@@ -140,6 +140,8 @@ footer a{color:var(--accent)}
 <p>LinguaSprint is not directed to children under 13 and we do not knowingly collect data from them.</p>
 <h2>Your rights</h2>
 <p>Your learning data is stored only on your device. The app has no reset button: to erase everything, clear the app's storage in Android Settings or uninstall it. For the crash and analytics data listed above, Google acts as the processor — see Google's privacy policy for access and deletion requests.</p>
+<h2>Terms of Use</h2>
+<p>The terms for using the app and buying PRO: https://roeist.github.io/legal/linguasprint/terms/</p>
 <h2>Changes</h2>
 <p>We may update this policy; the "last updated" date will change accordingly.</p>
 <h2>Contact</h2>
