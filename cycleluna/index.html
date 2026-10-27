@@ -77,7 +77,7 @@ footer a{color:var(--accent)}
 <nav><a href="../">All apps</a></nav>
 <main>
 <h1>CycleLuna — Privacy Policy</h1>
-<p class="meta">Last updated: 9 October 2026</p>
+<p class="meta">Last updated: 27 October 2026</p>
 <p>CycleLuna ("the app", "we") is built privacy-first: your cycle information stays on your device. This policy says exactly what the app does and does not do with your data, including the parts that are less flattering.</p>
 <h2>The short version</h2>
 <ul>
@@ -96,7 +96,7 @@ footer a{color:var(--accent)}
 <p><strong>How it is stored, precisely.</strong> Your cycle entries are kept in an ordinary <strong>plaintext SQLite database</strong> (<code>cycleluna.db</code>) inside the app's private storage directory. It is <strong>not encrypted at rest</strong> — the data is not cryptographically scrambled on disk. It is protected by Android's app sandbox, which keeps other apps out, and, if you turn it on, by the app lock (fingerprint / face / device PIN). The app lock gates the <strong>screen</strong>, not the file: it does not encrypt the database. Anyone who can read the device's storage — a rooted phone, an ADB backup, or someone holding your unlocked phone — could read your cycle history.</p>
 <p>We would rather be precise than reassuring. If encryption at rest is a requirement for you, this release does not provide it, and we will not claim otherwise.</p>
 <h2>What the app sends</h2>
-<p>The merged manifest declares <code>INTERNET</code> and <code>ACCESS_NETWORK_STATE</code>; <code>com.android.vending.BILLING</code> and <code>com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE</code> for purchases; and <code>WAKE_LOCK</code> and <code>FOREGROUND_SERVICE</code>, which the Google Play and Firebase libraries merge in — we run no foreground service of our own. The only permission we declare ourselves is <code>USE_BIOMETRIC</code> (plus <code>USE_FINGERPRINT</code>, added by the AndroidX biometric library for older Android versions) for the app lock. Everything else arrives by manifest merge from the libraries below. Here is each one and what it is for:</p>
+<p>The merged manifest declares <code>INTERNET</code> and <code>ACCESS_NETWORK_STATE</code>; <code>com.android.vending.BILLING</code> for purchases; <code>com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE</code>, which Firebase Analytics uses to record which store the app was installed from; and <code>WAKE_LOCK</code> and <code>FOREGROUND_SERVICE</code>, which the Google Play and Firebase libraries merge in — we run no foreground service of our own. The only permission we declare ourselves is <code>USE_BIOMETRIC</code> (plus <code>USE_FINGERPRINT</code>, added by the AndroidX biometric library for older Android versions) for the app lock. Everything else arrives by manifest merge from the libraries below. Here is each one and what it is for:</p>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -108,13 +108,13 @@ footer a{color:var(--accent)}
 <tbody>
 <tr>
 <td data-label="Third party">Google Firebase Crashlytics</td>
-<td data-label="What it receives">Crash stack traces, device model, OS version</td>
+<td data-label="What it receives">Crash stack traces, device model, OS version, app version; a Firebase installation ID for this copy of the app and app-session start events (sent to Firebase's logging service)</td>
 <td data-label="Why">So we can fix crashes</td>
 </tr>
 <tr>
 <td data-label="Third party">Google Firebase Analytics</td>
-<td data-label="What it receives">Event names such as <code>app_open</code>, <code>cycle_logged</code> and <code>insights_viewed</code> with <strong>no parameters</strong>; and, from the Premium screen only, purchase-funnel events (<code>paywall_shown</code>, <code>purchase_succeeded</code>, ...) that carry the screen name, the product id of the plan, the price and currency of a purchase, or the reason a purchase failed. Firebase also attaches its own app-instance identifier</td>
-<td data-label="Why">So we can tell which screens are used and whether Premium works</td>
+<td data-label="What it receives">CycleLuna's own events <code>app_open</code>, <code>cycle_logged</code> (a day's log was saved) and <code>insights_viewed</code>, with <strong>no parameters</strong>. Two install-funnel events, each sent once per install: <code>first_run</code> (no parameters) and <code>activation_completed</code> with the fixed value <code>first_period_logged</code> (the first time you log a period day - never the date). A user property <code>is_premium</code> (true or false: whether Premium is active on this copy). From the Premium screen only: <code>paywall_shown</code> / <code>paywall_dismissed</code> (the screen name), <code>paywall_cta_tapped</code> / <code>checkout_started</code> (the product id of the plan), <code>purchase_succeeded</code> (product id, price, currency), <code>purchase_failed</code> (a failure code), <code>purchase_restored</code>, and <code>feature_used</code> (a tap on Restore purchases). Plus what Firebase records automatically for every app: an app-instance ID that resets when you reinstall, device model, OS version, app version and an approximate country derived from your IP address</td>
+<td data-label="Why">So we can tell how many installs really start using the app, which screens are used, and whether Premium works</td>
 </tr>
 <tr>
 <td data-label="Third party">Google Play Billing</td>
@@ -133,10 +133,14 @@ footer a{color:var(--accent)}
 </tr>
 </tbody>
 </table></div>
-<p><strong>No cycle data, symptom, note, date or mood ever appears in any of these.</strong> CycleLuna's own events have no parameters, and an automated test in our build (<code>AnalyticsSafetyTest</code>) fails if one of them ever gains a parameter; the purchase-funnel events carry only the purchase details listed above. No log line in the app prints your health data either.</p>
+<p><strong>No cycle data, symptom, note, date or mood ever appears in any of these.</strong> CycleLuna's own events have no parameters, and an automated test in our build (<code>AnalyticsSafetyTest</code>) fails if one of them ever gains a parameter; <code>activation_completed</code> carries only the fixed word <code>first_period_logged</code> (<code>FunnelAnalyticsTest</code> checks it), and the purchase-funnel events carry only the purchase details listed above. No log line in the app prints your health data either.</p>
 <p>We never receive your payment card details; those are handled solely by Google.</p>
 <h2>Advertising</h2>
 <p>The Google Mobile Ads SDK ships inside the app but advertising is <strong>switched off</strong> in this release, so no ad is requested and no ad is shown. The app does <strong>not</strong> use the advertising ID: the advertising-ID permissions the bundled libraries would add are removed from the app, and Firebase Analytics is configured not to collect the advertising ID or send ad-personalization signals. If we ever turn ads on, we will update this policy and the Play Data safety form before the release that does it.</p>
+<h2>Not a medical device</h2>
+<p>CycleLuna is a self-tracking tool for general wellbeing. Its predictions (next period, fertile window, ovulation) are estimates calculated from your own logs. It is not a medical device and not a contraceptive: do not use it to avoid or plan a pregnancy, or to diagnose anything. The app says this in Settings and next to the forecast.</p>
+<h2>Terms of Use</h2>
+<p>The terms that apply to the app and to Premium are at https://roeist.github.io/legal/cycleluna/terms/ (also linked in Settings and on the Premium screen).</p>
 <h2>Children</h2>
 <p>CycleLuna is not directed to children under 13 and we do not knowingly collect data from them.</p>
 <h2>Your rights</h2>
