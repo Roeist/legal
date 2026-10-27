@@ -21,7 +21,7 @@ APPS_ROOT="${APPS_ROOT:-..}"
 # and the footer; change it here if the repo or account is renamed.
 BASE_URL="${BASE_URL:-https://roeist.github.io/legal}"
 
-CONTACT_EMAIL="roei2mberg@gmail.com"
+CONTACT_EMAIL="steinbergsteinberg41@gmail.com"
 
 # slug|Directory name (under $APPS_ROOT)|Display name
 APPS=(

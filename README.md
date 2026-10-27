@@ -150,7 +150,7 @@ grep -o '\*\*\|`\||---|' */index.html index.html   # expect no output
 
 ## Contact address
 
-Every page shows **roei2mberg@gmail.com** as the contact, because that is the only address
+Every page shows **steinbergsteinberg41@gmail.com** as the contact, because that is the only address
 that exists today. Before these apps have real users, move this to a dedicated support
 address (e.g. `support@…` on a domain you control) and re-run `build.sh`: a personal
 Gmail address on a public store listing is permanently scrapeable, cannot be handed to
