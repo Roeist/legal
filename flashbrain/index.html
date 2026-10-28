@@ -77,7 +77,7 @@ footer a{color:var(--accent)}
 <nav><a href="../">All apps</a></nav>
 <main>
 <h1>FlashBrain — Privacy Policy</h1>
-<p class="meta">Last updated: 27 October 2026</p>
+<p class="meta">Last updated: 29 October 2026</p>
 <p>FlashBrain ("the app", "we") is built privacy-first: your decks and cards stay on your device. This policy says exactly what the app does and does not do with your data, including the parts that are less flattering.</p>
 <h2>The short version</h2>
 <ul>
@@ -111,7 +111,7 @@ footer a{color:var(--accent)}
 </tr>
 <tr>
 <td data-label="Third party">Google Firebase Analytics</td>
-<td data-label="What it receives">Usage events and a few non-identifying details: <code>app_open</code>; <code>first_run</code> (once per install); <code>activation_completed</code> (once per install, the first card you study, with the fixed value <code>first_card_studied</code>); <code>deck_created</code>; <code>review_complete</code> with the number of cards the session reviewed; and for the supporter tip <code>paywall_shown</code> / <code>paywall_dismissed</code> (where it was offered), <code>paywall_cta_tapped</code> / <code>checkout_started</code> (the product id), <code>purchase_succeeded</code> (product id, price, currency), <code>purchase_failed</code> (product id, a failure code), <code>purchase_restored</code> and <code>feature_used</code> (a Restore tap). A user property <code>is_premium</code> (true or false: whether this copy holds the tip). Plus what Firebase records automatically for every app: an app-instance ID that resets when you reinstall, device model, OS version, app version and an approximate country derived from your IP address</td>
+<td data-label="What it receives">Usage events and a few non-identifying details: <code>app_open</code>; <code>first_run</code> (once per install); <code>activation_completed</code> (once per install, the first card you study, with the fixed value <code>first_card_studied</code>); <code>deck_created</code>; <code>review_complete</code> with the number of cards the session reviewed; and for the supporter tip <code>paywall_shown</code> / <code>paywall_dismissed</code> (where it was offered), <code>paywall_cta_tapped</code> / <code>checkout_started</code> (the product id), <code>purchase_succeeded</code> (product id, price, currency), <code>purchase_failed</code> (product id, a failure code), <code>purchase_restored</code> and <code>feature_used</code> (a Restore tap). To learn which parts of the app work: <code>screen_viewed</code> (which screen, by a fixed name such as <code>deck_list</code>, <code>study</code>, <code>settings</code> or <code>paywall</code>); <code>screen_time</code> (that screen name and a broad duration range such as <code>lt_5s</code> or <code>2m_10m</code>, never the exact time); <code>button_tapped</code> (a fixed button name such as <code>grade_again</code> or <code>export_all</code>, and the screen name); <code>error_shown</code> (a fixed error code such as <code>export_failed</code>, and the screen name); and, with no details, <code>card_save_succeeded</code> / <code>card_save_failed</code>, <code>deck_save_succeeded</code> / <code>deck_save_failed</code>, <code>import_succeeded</code> / <code>import_failed</code>, <code>export_succeeded</code> / <code>export_failed</code> and <code>restore_succeeded</code> / <code>restore_failed</code>. A user property <code>is_premium</code> (true or false: whether this copy holds the tip). Plus what Firebase records automatically for every app: an app-instance ID that resets when you reinstall, device model, OS version, app version and an approximate country derived from your IP address</td>
 <td data-label="Why">So we can tell which parts of the app are used and whether the tip works</td>
 </tr>
 <tr>
@@ -131,7 +131,7 @@ footer a{color:var(--accent)}
 </tr>
 </tbody>
 </table></div>
-<p><strong>No deck name, card front, card back or review rating ever appears in any of these.</strong> The only values attached to analytics events are the ones listed above.</p>
+<p><strong>No deck name, card front or card back ever appears in any of these, and nothing ties a tap to a card:</strong> <code>button_tapped</code> says that a grade button such as <code>grade_again</code> was pressed, never on which card. The only values attached to analytics events are the ones listed above.</p>
 <p>We never receive your payment card details; those are handled solely by Google.</p>
 <h2>Advertising</h2>
 <p>The Google Mobile Ads SDK ships inside the app but advertising is <strong>switched off</strong> in this release, so no ad is requested and no ad is shown. The app does not use your advertising ID: the permission is removed from the app and Firebase's advertising-ID collection is turned off. If we ever turn ads on, we will update this policy and the Play Data safety form before the release that does it.</p>
